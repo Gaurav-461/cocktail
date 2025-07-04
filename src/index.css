@@ -24,6 +24,15 @@ body {
   overflow-x: hidden;
 }
 
+.navbar-blur {
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* For Safari support */
+  transition:
+    background-color 0.3s,
+    backdrop-filter 0.3s;
+}
+
 @utility flex-center {
   @apply flex items-center justify-center;
 }

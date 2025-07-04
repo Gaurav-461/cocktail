@@ -7,20 +7,28 @@ const Navbar = () => {
   useGSAP(() => {
     const navTween = gsap.timeline({
       scrollTrigger: {
-       trigger: 'nav',
-       start: 'bottom top',
-      }
-     });
-     
-     navTween.fromTo('nav', { backgroundColor: 'transparent' }, {
-      backgroundColor: '#00000050',
-      backgroundFilter: 'blur(10px)',
-      duration: 1,
-      ease: 'power1.inOut'
-     });
+        trigger: "nav",
+        start: "bottom top",
+        scrub: true,
+      },
+    });
+
+    navTween.fromTo(
+      "nav",
+      {
+        backgroundColor: "rgba(0,0,0,0)",
+        backdropFilter: "blur(0px)",
+      },
+      {
+        backgroundColor: "rgba(0,0,0,0.3)",
+        backdropFilter: "blur(10px)",
+        duration: 1,
+        ease: "power1.inOut",
+      },
+    );
   });
   return (
-    <nav className="">
+    <nav className="navbar-blur">
       <div>
         <a href="#hero" className="flex items-center gap-2">
           <img src="/images/logo.png" alt="logo" />
