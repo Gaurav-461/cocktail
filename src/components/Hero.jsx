@@ -55,7 +55,7 @@ const Hero = () => {
                 start: startValue,
                 end: endValue,
                 scrub: true,
-                markers: true,
+                // markers: true,
                 pin: true,
             },
         });

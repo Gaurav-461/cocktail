@@ -20,36 +20,53 @@ const Art = () => {
             },
         });
 
-        scrollTimeline
-            .to(".will-fade", {
-                opacity: 0,
-                stagger: 0.2,
-                ease: "power1.inOut",
-            })
-            .to(".masked-img", {
-                scale: 1.5,
-                maskPosition: "center",
-                maskSize: "400%",
-                duration: 1,
-                ease: "power1.inOut",
-            })
-            .to("#masked-content", {
-                opacity: 1,
-                duration: 1,
-                ease: "power1.inOut",
-            });
+        if (!isMobile) {
+            // Only add the fade animation for non-mobile devices
+            scrollTimeline
+                .to(".will-fade", {
+                    opacity: 0,
+                    stagger: 0.2,
+                    ease: "power1.inOut",
+                })
+                .to(".masked-img", {
+                    scale: 1.5,
+                    maskPosition: "center",
+                    maskSize: "400%",
+                    duration: 1,
+                    ease: "power1.inOut",
+                })
+                .to("#masked-content", {
+                    opacity: 1,
+                    duration: 1,
+                    ease: "power1.inOut",
+                });
+        } else {
+            scrollTimeline
+                .to(".masked-img", {
+                    scale: 1.5,
+                    maskPosition: "center",
+                    maskSize: "400%",
+                    duration: 1,
+                    ease: "power1.inOut",
+                })
+                .to("#masked-content", {
+                    opacity: 1,
+                    duration: 1,
+                    ease: "power1.inOut",
+                });
+        }
     });
     return (
         <div id="art">
             <div className="container mx-auto h-full pt-20">
                 <h2 className="will-fade">THE ART</h2>
 
-                <div className="content">
+                <div className="content ">
                     <ul className="will-fade space-y-4">
                         {goodLists.map((feature, index) => (
-                            <li key={index} className="flex items-center gap-2">
+                            <li key={index} className="flex items-center justify-center md:justify-start gap-2">
                                 <img src="/images/check.png" alt="check" />
-                                <p>{feature}</p>
+                                <p className="w-60 md:w-fit">{feature}</p>
                             </li>
                         ))}
                     </ul>
@@ -58,13 +75,16 @@ const Art = () => {
                         <img
                             src="/images/under-img.jpg"
                             alt="cocktail"
-                            className="abs-center masked-img size-full object-contain"
+                            className="abs-center size-full masked-img object-contain"
                         />
                     </div>
 
                     <ul className="will-fade space-y-4">
                         {featureLists.map((feature, index) => (
-                            <li key={index} className="flex items-center justify-start gap-2">
+                            <li
+                                key={index}
+                                className="flex items-center justify-center md:justify-start gap-2"
+                            >
                                 <img src="/images/check.png" alt="check" />
                                 <p className="w-60 md:w-fit">{feature}</p>
                             </li>
