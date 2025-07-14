@@ -13,7 +13,7 @@ const Contact = () => {
                 start: "top center",
                 end: "bottom center",
                 ease: "power1.inOut",
-                markers: true,
+                // markers: true,
             },
         });
 
